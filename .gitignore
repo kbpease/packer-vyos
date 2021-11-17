@@ -11,4 +11,4 @@ crash.log
 **/*-manifest.json
 
 # For the love of god, don't check in your infrastructure info
-vyos.pkrvars.hcl
+*.auto.pkrvars.hcl

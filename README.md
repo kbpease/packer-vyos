@@ -25,9 +25,15 @@ You'll need to (by default) set a few environment variables to ensure you're not
 
 ### Define variable overrides for your site & configuration
 
-Copy the sample-config.pkrvars.hcl file to vyos.auto.pkrvars.hcl.  The .auto.pkrvars.hcl name will cause packer to automatically load the file.  If you don't want that to happen, omit the .auto & supply a -var-file=... parameter on the packer command line.
+Copy the sample-config.pkrvars.hcl file to config.auto.pkrvars.hcl.  The .auto.pkrvars.hcl name will cause packer to automatically load the file.  If you don't want that to happen, omit the .auto & supply a -var-file=... parameter on the packer command line.
 
-```cp sample-config.pkrvars.hcl vyos.auto.pkrvars.hcl```
+```cp sample-config.pkrvars.hcl config.auto.pkrvars.hcl```
+
+To check the predefined variable settings as well as that your overrides are taking effect, run:
+
+```packer inspect .```
+
+Pay close attention to the "input variables:" section, to ensure that your settings are correct.
 
 ### Initialize Packer
 
@@ -49,4 +55,4 @@ Packer will parse the templates and ensure that they are syntactically correct a
 
 At the end of this process, you should have a vCenter template created that you can "clone to VM..." to your heart's content.
 
-We use terraform to deploy copies of that template & configure it - look for a terraform-vyos repo for an exmaple, coming soon.
+We use terraform to deploy copies of that template & configure it - look for a terraform-vyos repo for an example, coming soon.
